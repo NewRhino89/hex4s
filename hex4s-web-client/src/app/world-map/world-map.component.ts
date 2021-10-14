@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { WorldMapController } from '../phaser-files/world-map-controller.scene';
 
 @Component({
@@ -18,10 +19,11 @@ export class WorldMapComponent implements OnInit {
     backgroundColor: '#fff9e6'
   };
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
     this.phaserGame = new Phaser.Game(this.config);
+    this.phaserGame.scene.start('WorldMapController', { someData: '...arbitrary data' });
   }
 }

@@ -8,6 +8,7 @@ export class WorldMapSideBarScene extends Phaser.Scene {
     graphics!: Phaser.GameObjects.Graphics;
     text!: Phaser.GameObjects.Text;
     text2!: Phaser.GameObjects.Text;
+    currentHexagon: Hexagon | undefined;
 
     constructor() {
         super({ key: 'WorldMapSideBar' });
@@ -24,11 +25,26 @@ export class WorldMapSideBarScene extends Phaser.Scene {
 
         this.graphics = this.add.graphics();
         this.text = this.add.text(0, 5, '0 0', { color: '#000000' }).setScrollFactor(0);
+        let goToPageText: Phaser.GameObjects.Text = this.add.text(0, 50, 'go to page', { color: '#000000' });
+        goToPageText.setScrollFactor(0);
+        goToPageText.setInteractive();
+        this.input.on('gameobjectdown', () => this.navigateToKingdom());
 
         eventsCenter.on('hex-hovered', this.hexHovered, this); 
     }
 
+    navigateToKingdom() {
+        if(this.currentHexagon){
+            debugger;
+            const parsedUrl = new URL(window.location.href);
+            const baseUrl = parsedUrl.origin;
+            var completeUrl = baseUrl + '/kingdom/' + Math.round(this.currentHexagon.x); 
+            window.location.href = completeUrl;
+        }
+    }
+
     hexHovered(hexagon: Hexagon) {
+        this.currentHexagon = hexagon;
         this.text.text = hexagon.row + ' ' + hexagon.col;
     }
 

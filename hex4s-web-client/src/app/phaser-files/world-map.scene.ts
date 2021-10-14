@@ -48,8 +48,6 @@ export class WorldMapScene extends Phaser.Scene {
 
         this.controls.update(delta);
 
-        console.log("test" + this.cameras.main.scrollX);
-
         if(this.cameras.main.scrollX < 0){
             this.cameras.main.scrollX = 0;
         }
