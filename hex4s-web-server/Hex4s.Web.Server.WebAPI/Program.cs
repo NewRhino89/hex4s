@@ -1,7 +1,16 @@
 
+using Hex4s.Web.Server.WebAPI.HubConfig;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddControllers();
+builder.Services.AddSignalR();
+
+//builder.Services.AddDbContextFactory<Hex>(
+//    options =>
+//        options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Test"));
 
 var app = builder.Build();
 
@@ -9,27 +18,13 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization();
 
-app.MapGet("/weatherforecast", () =>
+app.MapControllers();
+
+app.UseEndpoints(endpoints =>
 {
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-       new WeatherForecast
-       (
-           DateTime.Now.AddDays(index),
-           Random.Shared.Next(-20, 55),
-           summaries[Random.Shared.Next(summaries.Length)]
-       ))
-        .ToArray();
-    return forecast;
+    endpoints.MapHub<KingdomHub>("/kingdom");
 });
 
 app.Run();
-
-record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
