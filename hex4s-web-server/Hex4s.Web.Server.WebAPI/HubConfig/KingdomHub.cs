@@ -4,9 +4,9 @@ namespace Hex4s.Web.Server.WebAPI.HubConfig
 {
     public class KingdomHub : Hub
     {
-        public async Task GetKingdom(string user, string message, string myProjectId, string myProjectVal)
+        public async Task NewKingdom(string name, string color)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message, myProjectId, myProjectVal);
+            await Clients.All.SendAsync("NewKingdom", name, color);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Hex4s.Web.Server.WebAPI.Dtos;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,11 @@ namespace Hex4s.Web.Server.WebAPI.Controllers
     public class KingdomsController : ControllerBase
     {
         [HttpGet]
-        public void Get()
+        public KingdomDto Get()
         {
-            var result = new Dictionary<string, string>();
+            var kingdom = new KingdomDto();
+
+            return kingdom;
         }
     }
 }
