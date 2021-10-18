@@ -7,9 +7,11 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
+
+var connectionString = builder.Configuration.GetConnectionString("Hex4sDatabase");
 builder.Services.AddDbContextFactory<Hex4sDbContext>(
     options =>
-        options.UseSqlServer(@"Server=localhost;Database=Hex4s"));
+        options.UseSqlServer(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
 

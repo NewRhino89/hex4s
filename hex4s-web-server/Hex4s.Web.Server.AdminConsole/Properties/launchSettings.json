@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Hex4s.Web.Server.AdminConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "-a create"
+    }
+  }
+}

@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31512.422
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hex4s.Web.Server.WebAPI", "Hex4s.Web.Server.WebAPI.csproj", "{75CC8C19-559C-49A6-8AD9-3A11C25F1911}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hex4s.Web.Server.Data", "..\Hex4s.Web.Server.Data\Hex4s.Web.Server.Data.csproj", "{066F6170-502C-40A6-A407-7656E75993C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hex4s.Web.Server.Data", "..\Hex4s.Web.Server.Data\Hex4s.Web.Server.Data.csproj", "{066F6170-502C-40A6-A407-7656E75993C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hex4s.Web.Server.AdminConsole", "..\Hex4s.Web.Server.AdminConsole\Hex4s.Web.Server.AdminConsole.csproj", "{D210E25A-8749-4C5E-A633-61D052582AE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{066F6170-502C-40A6-A407-7656E75993C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{066F6170-502C-40A6-A407-7656E75993C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{066F6170-502C-40A6-A407-7656E75993C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D210E25A-8749-4C5E-A633-61D052582AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D210E25A-8749-4C5E-A633-61D052582AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D210E25A-8749-4C5E-A633-61D052582AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D210E25A-8749-4C5E-A633-61D052582AE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
